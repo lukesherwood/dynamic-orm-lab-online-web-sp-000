@@ -11,12 +11,11 @@ class InteractiveRecord
 
   def self.column_names
     column_names = []
-  
-    sql = "PRAGMA table_info('#{table_name}')"
+    sql = "PRAGMA table_info('#{table_name}')" 
     table_info = DB[:conn].execute(sql)
 
     table_info.each do |col| 
-      column_names << col["name"]  "name"
+      column_names << col["name"]
     end
     column_names.compact #to get rid of any nulls
   end
